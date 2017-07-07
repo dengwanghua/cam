@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<package name="crm" namespace="/" extends="struts-default"> 
+		<action name="UserAction_*" class="userAction" method="{1}">
+			<result name="success">/success.jsp</result>
+		</action>
+	</package>
+</struts>    
