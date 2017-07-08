@@ -1,4 +1,4 @@
-package domain;
+package com.domain;
 
 public class Customer {
 	
