@@ -3,12 +3,15 @@ package com.service.impl;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.CustomerDao;
 import com.domain.Customer;
 import com.service.CustomerService;
 import com.utils.PageBean;
-
+@Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=false)
 public class CustomerServiceImpl implements CustomerService{
 	private CustomerDao cd;
 	@Override
@@ -23,6 +26,22 @@ public class CustomerServiceImpl implements CustomerService{
 		//4 列表数据放入pageBean中.并返回
 		pb.setList(list);
 		return pb;
+	}
+	@Override
+	public void save(Customer customer) {
+		try {
+			cd.saveOrUpdate(customer);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+			
+			
+	}
+	
+	@Override
+	public Customer getById(Long cust_id) {
+		return cd.getById(cust_id);
 	}
 	public void setCd(CustomerDao cd) {
 		this.cd = cd;

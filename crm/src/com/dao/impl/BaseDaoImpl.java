@@ -66,7 +66,6 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 		dc.setProjection(null);
 		Integer count=null;
 		if(list!=null && list.size()>0){
-			System.out.println(list.get(0));
 				count = list.get(0);
 				return count;
 			
@@ -85,6 +84,16 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 		List<T> list = (List<T>) getHibernateTemplate().findByCriteria(dc, start, pageSize);
 		
 		return list;
+	}
+	
+	@Override
+	public void saveOrUpdate(T t) {
+		try {
+			getHibernateTemplate().saveOrUpdate(t);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 
 }
