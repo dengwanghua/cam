@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dao.BaseDictDao;
 import com.domain.BaseDict;
 import com.service.BaseDictService;
-@Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=true)
+@Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=false)
 public class BaseDictServiceImpl implements BaseDictService {
 	
 	private BaseDictDao bdd;
