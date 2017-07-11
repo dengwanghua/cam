@@ -47,6 +47,9 @@
 	<bean name="linkManAction" class="com.action.LinkManAction" scope="prototype" >
 		<property name="lms" ref="linkManService" ></property>
 	</bean>
+	<bean name="saleVisitAction" class="com.action.SaleVisitAction" scope="prototype" >
+		<property name="svs" ref="saleVisitService" ></property>
+	</bean>
 	
 	<bean name="userService" class="com.service.impl.UserServiceImpl">
 		<property name="ud" ref="userDao" ></property>
@@ -59,6 +62,9 @@
 	</bean>
 	<bean name="linkManService" class="com.service.impl.LinkManServiceImpl" >
 		<property name="lmd" ref="linkManDao" ></property>
+	</bean>
+	<bean name="saleVisitService" class="com.service.impl.SaleVisitServiceImpl" >
+		<property name="svd" ref="saleVisitDao" ></property>
 	</bean>
 	
 	
@@ -74,6 +80,10 @@
 		<property name="sessionFactory" ref="sessionFactory" ></property>
 	</bean>
 	<bean name="linkManDao" class="com.dao.impl.LinkManDaoImpl" >
+		<!-- 注入sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="saleVisitDao" class="com.dao.impl.SaleVisitDaoImpl" >
 		<!-- 注入sessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>

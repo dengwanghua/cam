@@ -91,9 +91,8 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 		try {
 			getHibernateTemplate().saveOrUpdate(t);
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getMessage());
 		}
-		
 	}
 
 }
