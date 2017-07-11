@@ -46,4 +46,9 @@ public class CustomerServiceImpl implements CustomerService{
 	public void setCd(CustomerDao cd) {
 		this.cd = cd;
 	}
+	@Override
+	public List<Object[]> getIndustryCount() {
+		// TODO Auto-generated method stub
+		return cd.getIndustryCount();
+	}
 }

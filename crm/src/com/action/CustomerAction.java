@@ -1,6 +1,7 @@
 package com.action;
 
 import java.io.File;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
@@ -62,7 +63,15 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 			ActionContext.getContext().put("customer", c);
 		return "edit";
 	}
-
+	public String industryCount() throws Exception {
+		
+		List<Object[]> list = cs.getIndustryCount();
+		
+		ActionContext.getContext().put("list", list);
+		
+		return "industryCount";
+		
+	}
 	@Override
 	public Customer getModel() {
 		// TODO Auto-generated method stub

@@ -37,6 +37,7 @@
 				<param name="namespace">/</param>
 				<param name="actionName">CustomerAction_list</param>
 			</result>
+			<result name="industryCount">/jsp/customer/industryCount.jsp</result>
 		</action>
 		
 		<action name="LinkManAction_*" class="linkManAction" method="{1}" >

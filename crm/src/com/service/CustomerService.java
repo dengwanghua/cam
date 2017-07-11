@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import org.hibernate.criterion.DetachedCriteria;
 
 import com.domain.Customer;
@@ -12,4 +14,5 @@ public interface CustomerService {
 	void save(Customer customer);
 	//根据id获得客户对象
 	Customer getById(Long cust_id);
+	List<Object[]> getIndustryCount();
 }
