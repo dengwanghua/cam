@@ -9,7 +9,7 @@ import com.service.UserService;
 import com.dao.UserDao;
 import com.domain.User;
 
-@Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=true)
+@Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=false)
 public class UserServiceImpl implements UserService{
 	private UserDao ud;
 	
@@ -31,6 +31,16 @@ public class UserServiceImpl implements UserService{
 			throw new RuntimeException("密码错误！");
 		}
 		return existU;
+	}
+
+	@Override
+	public void saveUser(User user) {
+		User existU = ud.getByUserCode(user.getUser_code());
+		if(existU!=null){
+			throw new RuntimeException("用户名已经存在!");
+		}
+		ud.save(user);
+		
 	}
 
 }

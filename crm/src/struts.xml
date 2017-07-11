@@ -3,12 +3,28 @@
 <struts>
 	<constant name="struts.objectFactory" value="spring"></constant>
 	<package name="crm" namespace="/" extends="struts-default"> 
+		<interceptors>
+				<interceptor name="privilegeInterceptor" class="com.interceptor.PrivilegeInterceptor"></interceptor>
+				<interceptor-stack name="myStack">
+					<interceptor-ref name="privilegeInterceptor">
+						<param name="excludeMethods">login,regist</param>
+					</interceptor-ref>
+					<interceptor-ref name="defaultStack"></interceptor-ref>
+				</interceptor-stack>
+			</interceptors>
+		<default-interceptor-ref name="myStack"></default-interceptor-ref>
+		
+		<global-results>
+			<result name="toLogin" type="redirect" >/login.jsp</result>
+		</global-results>
+		
 		<global-exception-mappings>
 			<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
 		</global-exception-mappings>
 		<action name="UserAction_*" class="userAction" method="{1}">
 			<result name="toHome" type="redirect">/index.htm</result>
 			<result name="error">/login.jsp</result>
+			<result name="regist" >/regist.jsp</result>
 		</action>
 		
 		<action name="BaseDictAction" class="baseDictAction" method="execute" >
@@ -31,6 +47,7 @@
 				<param name="actionName">LinkManAction_list</param>
 			</result>
 		</action>
+		
 		
 	</package>
 </struts>      
