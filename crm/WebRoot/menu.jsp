@@ -196,31 +196,6 @@ A.active {
 									<TD background=images/new_027.jpg height=1></TD>
 								</TR>
 								<TR>
-									<TD class=mainMenu onClick="MenuDisplay('table_3');"><SPAN
-										class=span id=table_3Span>＋</SPAN> 综合查询</TD>
-								</TR>
-								<TR>
-									<TD>
-										<TABLE id=table_3 style="DISPLAY: none" cellSpacing=0
-											cellPadding=2 width=155 align=center border=0>
-											<TBODY>
-												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
-														target=main>－ 客户信息查询</A></TD>
-												</TR>
-												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
-														target=main>－ 联系人信息查询</A></TD>
-												</TR>
-												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
-														target=main>－ 客户拜访记录查询</A></TD>
-												</TR>
-											</TBODY>
-										</TABLE>
-									</TD>
-								</TR>
-								<TR>
 									<TD background=images/new_027.jpg height=1></TD>
 								</TR>
 								<TR>
@@ -244,31 +219,8 @@ A.active {
 								<TR>
 									<TD background=images/new_027.jpg height=1></TD>
 								</TR>
-								<TR>
-									<TD class=mainMenu onClick="MenuDisplay('table_6');"><SPAN
-										class=span id=table_6Span>＋</SPAN>系统管理</TD>
-								</TR>
-								<TR>
-									<TD>
-										<TABLE id=table_6 style="DISPLAY: none" cellSpacing=0
-											cellPadding=2 width=155 align=center border=0>
-											<TBODY>
-												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
-														target=main>－角色管理</A></TD>
-												</TR>
-												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
-														target=main>－用户管理</A></TD>
-												</TR>
-												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
-														target=main>－数据字典</A></TD>
-												</TR>
-											</TBODY>
-										</TABLE>
-									</TD>
-								</TR>
+								
+								
 							</TBODY>
 						</TABLE>
 					</TD>
