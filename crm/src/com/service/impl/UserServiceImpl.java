@@ -1,5 +1,8 @@
 package com.service.impl;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -11,7 +14,9 @@ import com.dao.UserDao;
 import com.domain.User;
 
 @Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=false)
+@Service("userService")
 public class UserServiceImpl implements UserService{
+	@Resource(name="userDao")
 	private UserDao ud;
 	
 	public UserDao getUd() {

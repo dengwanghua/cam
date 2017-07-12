@@ -5,15 +5,17 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import com.dao.BaseDao;
 import com.domain.Customer;
-
 public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
-
 	private Class clazz;//用于接收运行期泛型类型
 	
 	
@@ -23,7 +25,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 		//获得运行期的泛型类型
 		clazz = (Class) ptClass.getActualTypeArguments()[0];
 	}
-
+	
 	@Override
 	public void save(T t) {
 		getHibernateTemplate().save(t);

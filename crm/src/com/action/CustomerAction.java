@@ -3,9 +3,13 @@ package com.action;
 import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 import com.domain.Customer;
 import com.opensymphony.xwork2.ActionContext;
@@ -13,9 +17,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.CustomerService;
 import com.utils.PageBean;
-
+@Controller("customerAction")
+@Scope("prototype")
 public class CustomerAction extends ActionSupport implements ModelDriven<Customer>{
 	private Customer customer=new Customer();
+	@Resource(name="customerService")
 	private CustomerService cs;
 	private File photo;
 	private String photoFileName;

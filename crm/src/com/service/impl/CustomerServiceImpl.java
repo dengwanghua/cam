@@ -2,7 +2,10 @@ package com.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +15,9 @@ import com.domain.Customer;
 import com.service.CustomerService;
 import com.utils.PageBean;
 @Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=false)
+@Service("customerService")
 public class CustomerServiceImpl implements CustomerService{
+	@Resource(name="customerDao")
 	private CustomerDao cd;
 	@Override
 	public PageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize) {

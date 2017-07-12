@@ -2,16 +2,23 @@ package com.dao.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.stereotype.Repository;
 
 import com.dao.CustomerDao;
 import com.domain.Customer;
-
+@Repository("customerDao")
 public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDao {
-
+	@Resource(name="sessionFactory")
+	public void setSF(SessionFactory sf){
+		super.setSessionFactory(sf);
+	}
 	@Override
 	public List<Object[]> getIndustryCount() {
 		//原生SQL查询

@@ -7,7 +7,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-	
+	<context:component-scan base-package="com.action"></context:component-scan>
+	<context:component-scan base-package="com.service"></context:component-scan>
+	<context:component-scan base-package="com.dao"></context:component-scan>
 	<context:property-placeholder location="classpath:db.properties"/>
 	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.driver}" />
@@ -35,56 +37,4 @@
 		<property name="mappingDirectoryLocations" value="classpath:com/domain"></property>
 	</bean>
 	
-	<bean name="userAction" class="com.action.UserAction" scope="prototype">
-		<property name="userService" ref="userService"></property>
-	</bean>
-	<bean name="customerAction" class="com.action.CustomerAction" scope="prototype" >
-		<property name="cs" ref="customerService" ></property>
-	</bean>
-	<bean name="baseDictAction" class="com.action.BaseDictAction" scope="prototype" >
-		<property name="baseDictService" ref="baseDictService" ></property>
-	</bean>
-	<bean name="linkManAction" class="com.action.LinkManAction" scope="prototype" >
-		<property name="lms" ref="linkManService" ></property>
-	</bean>
-	<bean name="saleVisitAction" class="com.action.SaleVisitAction" scope="prototype" >
-		<property name="svs" ref="saleVisitService" ></property>
-	</bean>
-	
-	<bean name="userService" class="com.service.impl.UserServiceImpl">
-		<property name="ud" ref="userDao" ></property>
-	</bean>
-	<bean name="customerService" class="com.service.impl.CustomerServiceImpl" >
-		<property name="cd" ref="customerDao" ></property>
-	</bean>
-	<bean name="baseDictService" class="com.service.impl.BaseDictServiceImpl" >
-		<property name="bdd" ref="baseDictDao" ></property>
-	</bean>
-	<bean name="linkManService" class="com.service.impl.LinkManServiceImpl" >
-		<property name="lmd" ref="linkManDao" ></property>
-	</bean>
-	<bean name="saleVisitService" class="com.service.impl.SaleVisitServiceImpl" >
-		<property name="svd" ref="saleVisitDao" ></property>
-	</bean>
-	
-	
-	<bean name="userDao" class="com.dao.impl.UserDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	<bean name="customerDao" class="com.dao.impl.CustomerDaoImpl" >
-		<!-- 注入sessionFactory -->
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	<bean name="baseDictDao" class="com.dao.impl.BaseDictDaoImpl" >
-		<!-- 注入sessionFactory -->
-		<property name="sessionFactory" ref="sessionFactory" ></property>
-	</bean>
-	<bean name="linkManDao" class="com.dao.impl.LinkManDaoImpl" >
-		<!-- 注入sessionFactory -->
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	<bean name="saleVisitDao" class="com.dao.impl.SaleVisitDaoImpl" >
-		<!-- 注入sessionFactory -->
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
 </beans>

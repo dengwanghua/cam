@@ -2,7 +2,10 @@ package com.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +15,9 @@ import com.domain.LinkMan;
 import com.service.LinkManService;
 import com.utils.PageBean;
 @Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=false)
+@Service("linkManService")
 public class LinkManServiceImpl implements LinkManService {
+	@Resource(name="linkManDao")
 	private LinkManDao lmd;
 	
 	@Override

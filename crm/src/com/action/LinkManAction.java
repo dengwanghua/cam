@@ -1,8 +1,13 @@
 package com.action;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
 import com.domain.LinkMan;
 import com.opensymphony.xwork2.ActionContext;
@@ -10,9 +15,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.LinkManService;
 import com.utils.PageBean;
-
+@Controller("linkManAction")
+@Scope("prototype")
 public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>{
 	private LinkMan linkMan=new LinkMan();
+	@Resource(name="linkManService")
 	private LinkManService lms;
 	
 	

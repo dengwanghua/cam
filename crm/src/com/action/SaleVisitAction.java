@@ -1,8 +1,12 @@
 package com.action;
 
 
+import javax.annotation.Resource;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 import com.domain.SaleVisit;
 import com.domain.User;
@@ -11,9 +15,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.SaleVisitService;
 import com.utils.PageBean;
-
+@Controller("saleVisitAction")
+@Scope("prototype")
 public class SaleVisitAction extends ActionSupport implements ModelDriven<SaleVisit>{
 	private SaleVisit saleVisit=new SaleVisit();
+	@Resource(name="saleVisitService")
 	private SaleVisitService svs ;
 	//添加客户拜访记录
 	public String add() throws Exception {

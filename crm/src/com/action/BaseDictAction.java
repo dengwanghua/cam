@@ -1,18 +1,24 @@
 package com.action;
 
 import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.apache.struts2.ServletActionContext;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
-
 import com.domain.BaseDict;
 import com.service.BaseDictService;
-import net.sf.json.JSONArray;
 
+import net.sf.json.JSONArray;
+@Controller("baseDictAction")
+@Scope("prototype")
 public class BaseDictAction extends ActionSupport {
 
 	private String dict_type_code;
-	
+	@Resource(name="baseDictService")
 	private BaseDictService baseDictService;
 	@Override
 	public String execute() throws Exception {
